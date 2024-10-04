@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     }
 
     for (x = 0; x < 3; x++) {
-        printf("\n Ingrese las calificaciones para la materia %s:\n", materias[x]);
+        printf("\nIngrese las calificaciones para la materia %s:\n", materias[x]);
         for (y = 0; y < 5; y++) {
             do {
                 printf("Estudiante %s: ", estudiantes[y]);  
@@ -41,21 +41,26 @@ int main(int argc, char *argv[]) {
         printf("\n");
     }
 
-    printf("________________________________________________________________________\n");
-    printf("\nPromedio General, nota maxima y minima por estudiante en cada materia:\n");
+    printf("\n");
+    printf("\nPromedio General, nota maxima y minima por estudiante (considerando las tres materias):\n");
     for (y = 0; y < 5; y++) {
-        printf("\nEstudiante: %s\n", estudiantes[y]);  
+        prom = 0;
+        max = notas[y][0];
+        min = notas[y][0];
+        printf("\nEstudiante: %s\n", estudiantes[y]);
+
         for (x = 0; x < 3; x++) {
-            prom = notas[y][x];  
-            max = notas[y][x];   
-            min = notas[y][x];   
-            printf("Materia: %s - Promedio General: %.2f, Nota Maxima: %.2f, Nota Minima: %.2f\n", 
-                   materias[x], prom, max, min);
+            prom += notas[y][x];
+            if (notas[y][x] > max) max = notas[y][x];
+            if (notas[y][x] < min) min = notas[y][x];
         }
+        prom /= 3;  
+
+        printf("Promedio General: %.2f, Nota Maxima: %.2f, Nota Minima: %.2f\n", prom, max, min);
     }
 
-    printf("_______________________________________________________________________________________________\n");
-    printf("\n \nPromedio de Clase, nota maxima y minima, y estudiantes aprobados y reprobados por materia:\n");
+    printf("_\n");
+    printf("\nPromedio de Clase, nota máxima y mínima, y estudiantes aprobados y reprobados por materia:\n");
     for (x = 0; x < 3; x++) {
         prom = 0;
         min = 10;
@@ -75,10 +80,9 @@ int main(int argc, char *argv[]) {
         }
         prom /= 5;  
 
-        printf("\n Materia: %s - Promedio de Clase: %.2f, Nota Maxima: %.2f, Nota Minima: %.2f\n", 
+        printf("\nMateria: %s - Promedio de Clase: %.2f, Nota Máxima: %.2f, Nota Mínima: %.2f\n", 
                materias[x], prom, max, min);
-        printf("\n Estudiantes aprobados: %d, Estudiantes reprobados: %d\n", aprobados, reprobados);
-        
+        printf("Estudiantes aprobados: %d, Estudiantes reprobados: %d\n", aprobados, reprobados);
     }
 
     return 0;
