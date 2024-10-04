@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
                 scanf("%f", &notas[y][x]);
 
                 if (notas[y][x] < 0 || notas[y][x] > 10) {
-                    printf("Error: La calificación debe estar entre 0 y 10. Intente de nuevo.\n");
+                    printf("Error: La calificacion debe estar entre 0 y 10. Intente de nuevo.\n");
                 }
             } while (notas[y][x] < 0 || notas[y][x] > 10);
         }
