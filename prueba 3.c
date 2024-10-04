@@ -3,7 +3,7 @@
 int main(int argc, char *argv[]) {
     float notas[5][3];   
     char materias[3][20];  
-    char estudiantes[5][20];  
+    char estudiantes[5][40];  
     int x, y;
     float min, max, prom;
     int aprobados, reprobados;
